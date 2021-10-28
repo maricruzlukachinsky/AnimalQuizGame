@@ -3,6 +3,13 @@ Game objective: You will be asked a series of animal questions.
 At the end you will see your results.
 '''
 
+print("Welcome to my quiz!")
+
+playing = input("Do you wish to test your animal knowledge? (yes or no)")
+
+if playing.lower() != "yes":
+    quit()
+
 
 def new_game():
     guesses = []
@@ -24,7 +31,6 @@ def new_game():
 
 
 def check_answer(answer, guess):
-
     if answer == guess:
         print("CORRECT!")
         return 1
@@ -47,12 +53,11 @@ def display_score(correct_guesses, guesses):
         print(player_input, end="")
     print()
 
-    score = ((correct_guesses/len(questions))*100)
+    score = ((correct_guesses / len(questions)) * 100)
     print("Your score is: " + str(score) + "%")
 
 
 def play_again():
-
     response = input("Do you want to play again? (yes or no): ")
     response = response.upper()
 
@@ -62,7 +67,7 @@ def play_again():
         return False
 
 
-# create a collection or dictionary to hold the questions and answers.
+# create a collection or dictionary to hold the questions and an array to hold answers.
 
 
 questions = {
@@ -72,7 +77,6 @@ questions = {
     "What animal goes 'oink, oink'? ": 'D',
     "What snake has the deadliest venom? ": "B",
 }
-
 
 options = [["A. Whale Shark", "B. Blue Shark", "C. Great White Shark", "D. HammerHead Shark"],
            ["A. Dolphin", "B. Starfish", "C. Goldfish", "D. SeaHorse"],
