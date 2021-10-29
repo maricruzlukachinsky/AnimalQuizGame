@@ -1,13 +1,16 @@
 '''
 Game objective: You will be asked a series of animal questions.
 At the end you will see your results.
+Start by building out layout:
+1. new game, 2. check answer, 3.display score, 4. play again.
+Create dictionary to hold the questions with the correct answer key value.
 '''
 
-print("Welcome to my quiz!")
+print("Welcome to the animal quiz!")
 
 playing = input("Do you wish to test your animal knowledge? (yes or no)")
 
-if playing.lower() != "yes":
+if playing != "yes":
     quit()
 
 
@@ -18,11 +21,11 @@ def new_game():
 
     for key in questions:
         print(key)
-        for question in options[question_number - 1]:
-            print(question)
+        for answer_choices in options[question_number - 1]:
+            print(answer_choices)
         guess = input("Enter (A, B, C, D): ")
-        guess = guess.upper()
-        guesses.append(guess)
+        guess = guess.upper()    # Returns characters in uppercase, symbols and numbers are ignored.
+        guesses.append(guess)    # We are adding their guess to the list of guesses
 
         correct_guesses += check_answer(questions.get(key), guess)
         question_number += 1
@@ -43,7 +46,7 @@ def display_score(correct_guesses, guesses):
     print("--------------------")
     print("Results: ")
 
-    print("Correct answers: ", end="")
+    print("Correct answers: ", end="")    # we want all the answers to display next to each other and not in a new line
     for value in questions:
         print(questions.get(value), end="")
     print()
@@ -67,7 +70,7 @@ def play_again():
         return False
 
 
-# create a collection or dictionary to hold the questions and an array to hold answers.
+# create a collection or dictionary to hold the questions and a list with answer choices.
 
 
 questions = {
